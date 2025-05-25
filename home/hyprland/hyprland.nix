@@ -96,9 +96,14 @@
 	};
 
 	# See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-	master ={
-	    new_status = master;
-	};
+	master = {
+		new_status = "slave";
+		new_on_top = true;
+		mfact = 0.5;
+      };
+	#master ={
+	    #new_status = master;
+	#};
 
 	# https://wiki.hyprland.org/Configuring/Variables/#misc
 	misc = {
