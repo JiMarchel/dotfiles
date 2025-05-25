@@ -5,7 +5,9 @@
   # manage.
   home.username = "marchel";
   home.homeDirectory = "/home/marchel";
-
+  imports = [
+	./terminal/default.nix
+  ];
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -19,7 +21,6 @@
   # environment.
   home.packages = with pkgs; [
     neovim
-    kitty
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
