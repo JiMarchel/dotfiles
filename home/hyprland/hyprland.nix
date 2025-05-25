@@ -24,8 +24,8 @@
 	    border_size = 2;
 
 	    # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-	    col.active_border = rgba(cfbdfeff);
-	    col.inactive_border = rgba(cbc2dcff);
+	    #col.active_border = rgba(cfbdfeff);
+	    #col.inactive_border = rgba(cbc2dcff);
 
 	    resize_on_border = true;
 
