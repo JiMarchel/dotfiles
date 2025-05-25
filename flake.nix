@@ -24,15 +24,32 @@
         #specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+	home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
+          home-manager.useUserPackages = true;
+          # Ganti "usernameanda" dengan nama pengguna Anda yang sebenarnya
+          home-manager.users.marchel = import ./home/default.nix; # Path ke file konfigurasi home.nix Anda
+
+          # Atau jika Anda ingin mendefinisikan konfigurasi HM inline (kurang umum untuk config besar)
+          # home-manager.users.usernameanda = { pkgs, ... }: {
+          #   home.packages = [ pkgs.kitty ];
+          #   programs.hyprland.enable = true;
+          #   # ... konfigurasi HM lainnya ...
+          # };
+
+          # Jika Anda menggunakan `extraSpecialArgs` untuk Home Manager
+          # home-manager.extraSpecialArgs = { inherit inputs; /* argumen lain */ };
+        }
         ];
       };
     };
-   homeConfigurations = {
-    marchel = home-manager.lib.homeManagerConfiguration {
-	inherit pkgs;
-	modules = [./home/default.nix];
-	}; 
-    };
+   #homeConfigurations = {
+   # marchel = home-manager.lib.homeManagerConfiguration {
+#	inherit pkgs;
+#	modules = [./home/default.nix];
+#	}; 
+ #   };
 
   };
 }
