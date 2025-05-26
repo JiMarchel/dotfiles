@@ -25,6 +25,17 @@ programs.nvf = {
         };
       };
 telescope.enable = true;
+            lsp = {
+        formatOnSave = true;
+        lspkind.enable = false;
+        lightbulb.enable = false;
+        lspsaga.enable = false;
+        trouble.enable = true;
+        lspSignature.enable = true;
+        otter-nvim.enable = false;
+        nvim-docs-view.enable = false;
+      };
+
 languages = {
         enableLSP = true;
         enableFormat = true;
