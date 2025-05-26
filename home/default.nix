@@ -72,6 +72,15 @@
   #  /etc/profiles/per-user/marchel/etc/profile.d/hm-session-vars.sh
   #
 	
+ # Fix for some XDG path issues:
+  xdg.configFile."environment.d/envvars.conf".text = ''
+    PATH="$HOME/.nix-profile/bin:$PATH"
+  '';
+  xdg.enable=true;
+  xdg.mime.enable=true;
+  targets.genericLinux.enable=true;
+  xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications"  "${config.home.homeDirectory}/.nix-profile/share/" ];
+
   programs.bash = {
   	enable = true;
 	shellAliases = {

@@ -19,7 +19,7 @@
      pkgs = nixpkgs.legacyPackages.${system};
    in{
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      marchel = lib.nixosSystem {
         inherit system;
         #specialArgs = { inherit inputs; };
         modules = [
