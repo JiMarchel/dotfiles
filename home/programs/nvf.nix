@@ -16,5 +16,6 @@ programs.nvf = {
         wrap = false;
       };
 };
+};
 }
 

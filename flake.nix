@@ -31,20 +31,11 @@
         {
           home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
           home-manager.useUserPackages = true;
+	home-manager.extraSpecialArgs = { inherit inputs; };
           home-manager.users.marchel = import ./home/default.nix; # Path ke file konfigurasi home.nix Anda
         }
         ];
       };
     };
-   #homeConfigurations = {
-   # marchel = home-manager.lib.homeManagerConfiguration {
-#	inherit pkgs;
-#	modules = [
-#	./home/default.nix
-#	nvf.homeManagerModules.default
-#	];
-#	}; 
- #   };
-
-  };
+     };
 }
