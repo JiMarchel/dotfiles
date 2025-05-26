@@ -26,23 +26,25 @@
         inherit system;
         #specialArgs = { inherit inputs; };
         modules = [
-	nvf.homeManagerModules.default
         ./configuration.nix
-	home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
-          home-manager.useUserPackages = true;
-          home-manager.users.marchel = import ./home/default.nix; # Path ke file konfigurasi home.nix Anda
-        }
+#	home-manager.nixosModules.home-manager
+#        {
+ #         home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
+  #        home-manager.useUserPackages = true;
+   #       home-manager.users.marchel = import ./home/default.nix; # Path ke file konfigurasi home.nix Anda
+    #    }
         ];
       };
     };
-   #homeConfigurations = {
-   # marchel = home-manager.lib.homeManagerConfiguration {
-#	inherit pkgs;
-#	modules = [./home/default.nix];
-#	}; 
- #   };
+   homeConfigurations = {
+    marchel = home-manager.lib.homeManagerConfiguration {
+	inherit pkgs;
+	modules = [
+	./home/default.nix
+	nvf.homeManagerModules.default
+	];
+	}; 
+    };
 
   };
 }
