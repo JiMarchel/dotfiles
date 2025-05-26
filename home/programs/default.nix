@@ -1,7 +1,7 @@
 {
 	imports = [
 		./git.nix
-		./nixvim.nix
+		./nvf.nix
 		./packages.nix
 	];
 }

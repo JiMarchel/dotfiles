@@ -11,8 +11,9 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+   nvf.url = "github:notashelf/nvf";
   };
- outputs = inputs@{self, nixpkgs, home-manager, ... }: 
+ outputs = inputs@{self, nixpkgs, home-manager, nvf, ... }: 
    let 
      lib = nixpkgs.lib;
      system = "x86_64-linux";
@@ -28,19 +29,9 @@
         {
           home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
           home-manager.useUserPackages = true;
-          # Ganti "usernameanda" dengan nama pengguna Anda yang sebenarnya
           home-manager.users.marchel = import ./home/default.nix; # Path ke file konfigurasi home.nix Anda
-
-          # Atau jika Anda ingin mendefinisikan konfigurasi HM inline (kurang umum untuk config besar)
-          # home-manager.users.usernameanda = { pkgs, ... }: {
-          #   home.packages = [ pkgs.kitty ];
-          #   programs.hyprland.enable = true;
-          #   # ... konfigurasi HM lainnya ...
-          # };
-
-          # Jika Anda menggunakan `extraSpecialArgs` untuk Home Manager
-          # home-manager.extraSpecialArgs = { inherit inputs; /* argumen lain */ };
         }
+	nvf.nixosModule.default
         ];
       };
     };
