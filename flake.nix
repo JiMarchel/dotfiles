@@ -14,10 +14,6 @@
     nvf = {
       url = "github:notashelf/nvf";
     };
-    hyprpanel = {
-      url = "github:Jas-SinghFSU/HyprPanel";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs = inputs @ {
     self,
@@ -29,17 +25,19 @@
   }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    myOverLay = [
-      inputs.hyprpanel.overlay
-    ];
+
     pkgs = import nixpkgs {
       inherit system;
-      overlay = myOverLay;
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate = _: true;
+      };
     };
   in {
     nixosConfigurations = {
       marchel = lib.nixosSystem {
-        specialArgs = {inherit inputs pkgs;};
+        inherit pkgs;
+        specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
           home-manager.nixosModules.home-manager

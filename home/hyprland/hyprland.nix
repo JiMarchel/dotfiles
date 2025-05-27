@@ -6,8 +6,9 @@
     xwayland.enable = true;
 
     settings = {
-      exec-one = [
-        "${pkgs.hyprpanel}/bin/hyprpanel"
+      exec-once = [
+        # "${pkgs.hyprpanel}/bin/hyprpanel"
+        "waybar"
       ];
       env = [
         # Hint Electron apps to use Wayland
