@@ -4,5 +4,6 @@
     ./nvf.nix
     ./packages.nix
     ./wlogout/wlogout.nix
+    ./rofi.nix
   ];
 }
