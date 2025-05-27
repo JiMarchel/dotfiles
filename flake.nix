@@ -14,6 +14,10 @@
     nvf = {
       url = "github:notashelf/nvf";
     };
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = inputs @ {
     self,
@@ -29,9 +33,10 @@
     nixosConfigurations = {
       marchel = lib.nixosSystem {
         inherit system;
-        #specialArgs = { inherit inputs; };
+        specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
+          {nixpkgs.overlay = [inputs.hyprpanel.overlay];}
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna

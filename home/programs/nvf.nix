@@ -10,13 +10,20 @@
     settings.vim = {
       vimAlias = true;
       viAlias = true;
-      lineNumberMode = "number";
+      lineNumberMode = "relative";
       enableLuaLoader = true;
       preventJunkFiles = true;
       options = {
         tabstop = 4;
-        shiftwidth = 2;
+        shiftwidth = 4;
         wrap = false;
+      };
+
+      theme = {
+        enable = true;
+        name = "rose-pine";
+        style = "moon";
+        transparent = true;
       };
 
       clipboard = {
@@ -103,24 +110,29 @@
       autopairs.nvim-autopairs.enable = true;
       autocomplete.nvim-cmp.enable = true;
       snippets.luasnip.enable = true;
-      tabline.nvimBufferline.enable = true;
+      # tabline.nvimBufferline.enable = true;
       treesitter.context.enable = false;
+
       binds = {
         whichKey.enable = true;
         cheatsheet.enable = true;
       };
+
       git = {
         enable = true;
         gitsigns.enable = true;
         gitsigns.codeActions.enable = false;
       };
+
       projects.project-nvim.enable = true;
-      dashboard.dashboard-nvim.enable = true;
+      # dashboard.dashboard-nvim.enable = true;
       filetree.neo-tree.enable = true;
+
       notify = {
         nvim-notify.enable = true;
-        nvim-notify.setupOpts.background_colour = "#${config.lib.stylix.colors.base01}";
+        # nvim-notify.setupOpts.background_colour = "#${config.lib.stylix.colors.base01}";
       };
+
       utility = {
         preview.markdownPreview.enable = true;
         ccc.enable = false;
@@ -130,16 +142,17 @@
         diffview-nvim.enable = true;
         motion = {
           hop.enable = true;
-          leap.enable = true;
+          # leap.enable = true;
           precognition.enable = false;
         };
         images = {
           image-nvim.enable = false;
         };
       };
+
       ui = {
         borders.enable = true;
-        noice.enable = true;
+        # noice.enable = true;
         colorizer.enable = true;
         illuminate.enable = true;
         breadcrumbs = {
