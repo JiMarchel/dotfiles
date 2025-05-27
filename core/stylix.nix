@@ -2,7 +2,7 @@
   # Styling Options
   stylix = {
     enable = true;
-    image = "~/Pictures/wallpaper/64.png";
+    image = ../wallpaper/64.png;
 
     polarity = "dark";
     # opacity.terminal = 1.0;
