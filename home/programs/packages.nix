@@ -3,7 +3,11 @@
   # environment.
   home.packages = with pkgs; [
     font-awesome
+
+    #dev
     rustup
     gcc
+
+    pavucontrol
   ];
 }

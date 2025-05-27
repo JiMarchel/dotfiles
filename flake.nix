@@ -14,13 +14,14 @@
     nvf = {
       url = "github:notashelf/nvf";
     };
+    stylix.url = "github:danth/stylix";
   };
   outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
     nvf,
-    hyprpanel,
+    stylix,
     ...
   }: let
     lib = nixpkgs.lib;
@@ -40,6 +41,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./configuration.nix
+          inputs.stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
