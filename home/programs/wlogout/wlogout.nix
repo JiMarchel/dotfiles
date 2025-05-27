@@ -49,14 +49,14 @@
       	background-color: rgba(12, 12, 12, 0.1);
       }
       button {
-      	color: #${config.lib.stylix.colors.base05};
+      	color: #${config.lib.stylix.colors.base01};
         font-size:20px;
         background-repeat: no-repeat;
       	background-position: center;
       	background-size: 25%;
       	border-style: solid;
       	background-color: rgba(12, 12, 12, 0.3);
-      	border: 3px solid #${config.lib.stylix.colors.base05};
+      	border: 3px solid #${config.lib.stylix.colors.base01};
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       }
       button:focus,

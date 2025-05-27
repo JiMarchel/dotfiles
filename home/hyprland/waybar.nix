@@ -98,5 +98,18 @@
         };
       }
     ];
+
+    style = ''
+      *{
+          font-family: JetBrainsMono Nerd Font Mono;
+          font-size: 14px;
+          border-radius: 0px;
+          border: none;
+          min-height: 0px;
+      }
+      window#waybar {
+          background-color: transparent;
+      }
+    '';
   };
 }

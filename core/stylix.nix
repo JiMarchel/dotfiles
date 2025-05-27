@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # Styling Options
   stylix = {
     enable = true;
     image = ../wallpapers/64.png;
@@ -26,7 +25,7 @@
       };
       sizes = {
         applications = 12;
-        terminal = 14;
+        terminal = 12;
         desktop = 11;
         popups = 12;
       };
