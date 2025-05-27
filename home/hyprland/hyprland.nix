@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
 
@@ -7,6 +7,7 @@
 
     settings = {
       exec-one = [
+        "${pkgs.hyprpanel}/bin/hyprpanel"
       ];
       env = [
         # Hint Electron apps to use Wayland

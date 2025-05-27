@@ -24,24 +24,29 @@
     nixpkgs,
     home-manager,
     nvf,
+    hyprpanel,
     ...
   }: let
     lib = nixpkgs.lib;
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    myOverLay = [
+      inputs.hyprpanel.overlay
+    ];
+    pkgs = import nixpkgs {
+      inherit system;
+      overlay = myOverLay;
+    };
   in {
     nixosConfigurations = {
       marchel = lib.nixosSystem {
-        inherit system;
-        specialArgs = {inherit inputs;};
+        specialArgs = {inherit inputs pkgs;};
         modules = [
           ./configuration.nix
-          {nixpkgs.overlay = [inputs.hyprpanel.overlay];}
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true; # Opsional, tapi sering berguna
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.extraSpecialArgs = {inherit inputs pkgs;};
             home-manager.users.marchel = import ./home/default.nix; # Path ke file konfigurasi home.nix Anda
           }
         ];
