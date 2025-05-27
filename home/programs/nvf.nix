@@ -19,12 +19,12 @@
         wrap = false;
       };
 
-      theme = {
-        enable = true;
-        name = "rose-pine";
-        style = "moon";
-        transparent = true;
-      };
+      # theme = {
+      #   enable = lib.mkForce true;
+      #   name = lib.mkForce "rose-pine";
+      #   style = lib.mkForce "moon";
+      #   transparent = lib.mkForce true;
+      # };
 
       clipboard = {
         enable = true;
@@ -65,8 +65,9 @@
         nvim-docs-view.enable = false;
       };
 
+      lsp.enable = true;
       languages = {
-        enableLSP = true;
+        # enableLSP = true; #diganti menjadi vim.lsp.enable
         enableFormat = true;
         enableTreesitter = true;
         enableExtraDiagnostics = true;

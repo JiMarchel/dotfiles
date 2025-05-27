@@ -4,6 +4,5 @@
     ./nvf.nix
     ./packages.nix
     ./wlogout/wlogout.nix
-    ./stylix.nix
   ];
 }

@@ -2,7 +2,7 @@
   stylix = {
     enable = true;
     image = ../wallpapers/64.png;
-
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine-moon.yaml";
     polarity = "dark";
     # opacity.terminal = 1.0;
     cursor = {
@@ -29,6 +29,13 @@
         desktop = 11;
         popups = 12;
       };
+    };
+    targets = {
+      # waybar.enable = false;
+      # rofi.enable = false;
+      # hyprlock.enable = false;
+      # ghostty.enable = false;
+      nvf.enable = false;
     };
   };
 }

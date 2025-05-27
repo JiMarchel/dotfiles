@@ -62,9 +62,9 @@
       button:focus,
       button:active,
       button:hover {
-        color: #${config.lib.stylix.colors.base0B};
+        color: #${config.lib.stylix.colors.base02};
         background-color: rgba(12, 12, 12, 0.5);
-        border: 3px solid #${config.lib.stylix.colors.base0B};
+        border: 3px solid #${config.lib.stylix.colors.base02};
       }
       #logout {
       	margin: 10px;

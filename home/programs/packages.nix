@@ -3,6 +3,8 @@
   # environment.
   home.packages = with pkgs; [
     font-awesome
+    btop
+    yazi
 
     #dev
     rustup

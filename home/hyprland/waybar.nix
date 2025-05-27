@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
@@ -102,13 +106,13 @@
     style = ''
       *{
           font-family: JetBrainsMono Nerd Font Mono;
-          font-size: 14px;
-          border-radius: 0px;
+          font-size: 16px;
+          border-radius: 10px;
           border: none;
           min-height: 0px;
       }
       window#waybar {
-          background-color: transparent;
+          background-color: #${config.lib.stylix.colors.base01};
       }
     '';
   };
