@@ -4,12 +4,25 @@
   home.packages = with pkgs; [
     font-awesome
     btop
+    brightnessctl
+
+    #wifi
+    networkmanagerapplet
+
+    #terminal filemanager
     yazi
 
     #dev
     rustup
     gcc
 
+    #audio
     pavucontrol
+
+    #player
+    playerctl
+
+    #screenshot
+    hyprshot
   ];
 }

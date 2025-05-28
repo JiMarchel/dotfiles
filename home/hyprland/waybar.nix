@@ -13,27 +13,28 @@
         margin-top = 10;
         modules-left = [
           "custom/startmenu"
-          # "custom/arrow6"
-          # "idle_inhibitor"
-          # "custom/arrow7"
-          # "hyprland/window"
           "hyprland/workspaces"
         ];
-        modules-center = [];
+        modules-center = [
+          "custom/playerlabel"
+        ];
         modules-right = [
-          # "custom/arrow4"
-          # "custom/hyprbindings"
-          # "custom/arrow3"
-          # "custom/notification"
-          # "custom/arrow3"
-          # "custom/exit"
-          "tray"
           "battery"
           "pulseaudio"
-          "network"
+          # "network"
+          "tray"
           "clock"
           "custom/power-menu"
         ];
+
+        "custom/playerlabel" = {
+          format = "<span>󰎈 {} 󰎈</span>";
+          return-type = "json";
+          max-length = 35;
+          exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
+          on-click = "";
+        };
+
         "custom/power-menu" = {
           format = " ⏻ ";
           on-click = "wlogout";
@@ -53,7 +54,7 @@
         };
 
         clock = {
-          format = " {:%a, %d %b, %I:%M %p}";
+          format = " {:%I:%M %p}";
           tooltip = "true";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           format-alt = " {:%d/%m}";
@@ -62,7 +63,7 @@
         "custom/startmenu" = {
           tooltip = false;
           format = "";
-          on-click = "sleep 0.1 && rofi-launcher";
+          on-click = "rofi -show";
         };
 
         battery = {
@@ -138,16 +139,28 @@
         }
 
         #workspaces button.active {
-            color: #${config.lib.stylix.colors.base0E};
+            color: #${config.lib.stylix.colors.base0B};
+            border: none;
+        }
 
+        #custom-playerlabel {
+                  background-color: #${config.lib.stylix.colors.base00};
+                  color: #${config.lib.stylix.colors.base0B};
+                  padding: 0 20px;
+                  border-radius: 24px 10px 24px 10px;
+        }
+
+        #custom-startmenu, #workspaces{
+              margin-right: 15px;
         }
 
         #network,
         #custom-power-menu,
         #pulseaudio,
         #clock,
+        #tray,
         #battery {
-              color: #${config.lib.stylix.colors.base08};
+              color: #${config.lib.stylix.colors.base0B};
               background-color: #${config.lib.stylix.colors.base00};
               padding: 0 15px 0 15px;
               margin:0 0 0 15px;

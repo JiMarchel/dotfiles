@@ -7,8 +7,10 @@
 
     settings = {
       exec-once = [
-        # "${pkgs.hyprpanel}/bin/hyprpanel"
         "waybar"
+        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "nm-applet --indicator"
       ];
       env = [
         # Hint Electron apps to use Wayland
@@ -203,6 +205,10 @@
         "$mainMod Shift, 8, movetoworkspace, 8"
         "$mainMod Shift, 9, movetoworkspace, 9"
         "$mainMod Shift, 0, movetoworkspace, 10"
+
+        #schreenshot
+        ", PRINT, exec, hyprshot -m window"
+        "shift, PRINT, exec, hyprshot -m region"
       ];
 
       bindm = [
@@ -215,8 +221,8 @@
         ",XF86AudioLowerVolume,  exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
         ",XF86AudioMute,         exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ",XF86AudioMicMute,      exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        "$mainMod, bracketright, exec, brightnessctl s 10%+"
-        "$mainMod, bracketleft,  exec, brightnessctl s 10%-"
+        ",XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
       ];
 
       # Audio playback
