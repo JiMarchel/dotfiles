@@ -21,6 +21,7 @@
         modules-right = [
           "battery"
           "pulseaudio"
+          "backlight"
           # "network"
           "tray"
           "clock"
@@ -77,6 +78,12 @@
           format-plugged = " {capacity}% ";
           format-alt = "{icon} {time}";
           format-icons = ["" "" "" "" ""];
+        };
+
+        backlight = {
+          device = "intel_backlight";
+          format = "{icon} {percent}%";
+          format-icons = ["󰃞" "󰃟" "󰃠"];
         };
 
         network = {
@@ -141,6 +148,10 @@
         #workspaces button.active {
             color: #${config.lib.stylix.colors.base0B};
             border: none;
+            border-radius: none;
+            padding: 2px 5px;
+            text-decoration: none;
+            box-shadow: none;
         }
 
         #custom-playerlabel {
@@ -159,6 +170,7 @@
         #pulseaudio,
         #clock,
         #tray,
+        #backlight,
         #battery {
               color: #${config.lib.stylix.colors.base0B};
               background-color: #${config.lib.stylix.colors.base00};

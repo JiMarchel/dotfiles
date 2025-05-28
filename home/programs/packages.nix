@@ -5,6 +5,8 @@
     font-awesome
     btop
     brightnessctl
+    ripgrep
+    bat
 
     #wifi
     networkmanagerapplet
@@ -24,5 +26,8 @@
 
     #screenshot
     hyprshot
+
+    #bluetooth
+    blueman
   ];
 }
