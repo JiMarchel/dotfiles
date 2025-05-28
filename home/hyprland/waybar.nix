@@ -148,10 +148,6 @@
         #workspaces button.active {
             color: #${config.lib.stylix.colors.base0B};
             border: none;
-            border-radius: none;
-            padding: 2px 5px;
-            text-decoration: none;
-            box-shadow: none;
         }
 
         #custom-playerlabel {

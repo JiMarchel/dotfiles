@@ -12,7 +12,7 @@
       };
 
       logo = {
-        source = ../../../wallpapers/chika.jpg;
+        # source = ../../../wallpapers/chika.jpg;
         type = "kitty-direct";
         height = 10;
         width = 20;
@@ -26,7 +26,7 @@
         "break"
         {
           type = "os";
-          key = "OS - ZaneyOS v2.3";
+          key = "OS - JiMarchel";
           keyColor = "31";
         }
         {

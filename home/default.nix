@@ -34,13 +34,6 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -la";
-    };
-  };
-
   home.sessionVariables = {
     # EDITOR = "emacs";
   };

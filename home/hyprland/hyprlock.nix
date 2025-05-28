@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -8,16 +8,16 @@
         hide_cursor = true;
         no_fade_in = false;
       };
-      background = [
+      background = lib.mkForce [
         {
-          path = ../../wallpapers/64.png.jpg;
+          path = "/home/marchel/Pictures/wallpaper/64.png";
           blur_passes = 3;
           blur_size = 8;
         }
       ];
       image = [
         {
-          path = ../../wallpapers/chika.jpg;
+          path = "/home/marchel/Pictures/wallpaper/chika.jpg";
           size = 150;
           border_size = 4;
           border_color = "rgb(0C96F9)";
