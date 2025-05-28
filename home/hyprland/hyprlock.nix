@@ -10,13 +10,14 @@
       };
       background = [
         {
+          path = ../../wallpapers/64.png.jpg;
           blur_passes = 3;
           blur_size = 8;
         }
       ];
       image = [
         {
-          path = ../wallpapers/chika.jpg;
+          path = ../../wallpapers/chika.jpg;
           size = 150;
           border_size = 4;
           border_color = "rgb(0C96F9)";
