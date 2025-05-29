@@ -4,5 +4,6 @@
     ./security.nix
     ./services.nix
     ./sddm-theme.nix
+    ./virtualisation.nix
   ];
 }
