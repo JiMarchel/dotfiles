@@ -166,7 +166,7 @@
         "$mainMod, Tab, cyclenext"
         "$mainMod, Return, exec, kitty"
         "$mainMod, W, exec, rofi -show drun"
-        "$mainMod, E, exec, nautilus"
+        "$mainMod, E, exec, dolphin"
         "$mainMod, L, exec, hyprlock"
         "$mainMod, B, exec, firefox"
         "$mainMod, F, exec, fullscreen"
