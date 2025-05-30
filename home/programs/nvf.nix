@@ -16,15 +16,95 @@
       options = {
         tabstop = 4;
         shiftwidth = 4;
-        wrap = false;
+        wrap = true;
+        scrolloff = 5;
       };
 
-      # theme = {
-      #   enable = lib.mkForce true;
-      #   name = lib.mkForce "rose-pine";
-      #   style = lib.mkForce "moon";
-      #   transparent = lib.mkForce true;
-      # };
+      keymaps = [
+        {
+          key = "<C-c>";
+          mode = ["n"];
+          action = ":nohl<CR>";
+          silent = true;
+          desc = "Clear search hl";
+        }
+        {
+          key = "J";
+          mode = ["v"];
+          action = ":m '>+1<CR>gv=gv";
+          desc = "moves lines down in visual selection";
+        }
+        {
+          key = "K";
+          mode = ["v"];
+          action = ":m '<-2<CR>gv=gv";
+          desc = "moves lines up in visual selection";
+        }
+        {
+          key = "<leader>--";
+          mode = ["n"];
+          action = "<C-w>s";
+          desc = "Split window horizontally";
+        }
+        {
+          key = "<leader>|";
+          mode = ["n"];
+          action = "<C-w>v";
+          desc = "Split window vertically";
+        }
+        {
+          key = "<leader>q";
+          mode = ["n"];
+          action = "<C-w>q";
+          desc = "Close current split";
+        }
+        {
+          key = "<leader>=";
+          mode = ["n"];
+          action = "<C-w>=";
+          desc = "Make splits equal size";
+        }
+        {
+          key = "<C-Minus>";
+          mode = ["n"];
+          action = "<C-w>-";
+          desc = "Reduce window size";
+        }
+        {
+          key = "<C-Plus>";
+          mode = ["n"];
+          action = "<C-w>+";
+          desc = "Increase window size";
+        }
+        {
+          key = "<C-h>";
+          mode = ["n"];
+          action = "<C-w>h";
+          desc = "Move to window left";
+        }
+        {
+          key = "<C-k>";
+          mode = ["n"];
+          action = "<C-w>k";
+          desc = "Move to top window";
+        }
+        {
+          key = "<C-j>";
+          mode = ["n"];
+          action = "<C-w>j";
+          desc = "Move to bottom window";
+        }
+        {
+          key = "<C-l>";
+          mode = ["n"];
+          action = "<C-w>l";
+          desc = "Move to right window";
+        }
+      ];
+
+      mini = {
+        surround.enable = true;
+      };
 
       clipboard = {
         enable = true;
@@ -32,15 +112,6 @@
         providers = {
           wl-copy.enable = true;
           xsel.enable = true;
-        };
-      };
-
-      maps = {
-        normal = {
-          "<leader>e" = {
-            action = "<CMD>Neotree toggle<CR>";
-            silent = false;
-          };
         };
       };
 
@@ -126,8 +197,6 @@
       };
 
       projects.project-nvim.enable = true;
-      # dashboard.dashboard-nvim.enable = true;
-      filetree.neo-tree.enable = true;
 
       notify = {
         nvim-notify.enable = true;
@@ -139,7 +208,6 @@
         ccc.enable = false;
         vim-wakatime.enable = false;
         icon-picker.enable = true;
-        surround.enable = true;
         diffview-nvim.enable = true;
         motion = {
           hop.enable = true;
@@ -147,7 +215,10 @@
           precognition.enable = false;
         };
         images = {
-          image-nvim.enable = false;
+          img-clip.enable = true;
+        };
+        yazi-nvim = {
+          enable = true;
         };
       };
 

@@ -7,6 +7,9 @@
     brightnessctl
     ripgrep
     bat
+    mpv
+    vlc
+    rofimoji
 
     #wifi
     networkmanagerapplet
@@ -17,6 +20,8 @@
     #dev
     rustup
     gcc
+    nodejs_24
+    bun
 
     #audio
     pavucontrol
