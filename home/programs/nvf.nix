@@ -41,7 +41,7 @@
           desc = "moves lines up in visual selection";
         }
         {
-          key = "<leader>--";
+          key = "<leader>-";
           mode = ["n"];
           action = "<C-w>s";
           desc = "Split window horizontally";
@@ -162,6 +162,8 @@
           enable = true;
           crates.enable = true;
         };
+        svelte.enable = true;
+        tailwind.enable = true;
       };
 
       visuals = {
@@ -219,13 +221,30 @@
         };
         yazi-nvim = {
           enable = true;
+          mappings = {
+            openYazi = "<leader><leader>";
+          };
         };
       };
 
       ui = {
         borders.enable = true;
         # noice.enable = true;
-        colorizer.enable = true;
+        colorizer = {
+          enable = true;
+          setupOpts = {
+            filetypes = {
+              "html" = {};
+              "css" = {};
+              "javascript" = {};
+              "typescript" = {};
+              "jsx" = {};
+              "tsx" = {};
+              "vue" = {};
+              "svelte" = {};
+            };
+          };
+        };
         illuminate.enable = true;
         breadcrumbs = {
           enable = false;
