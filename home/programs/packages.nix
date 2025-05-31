@@ -18,6 +18,7 @@
     yazi
 
     #dev
+    vscode
     rustup
     gcc
     nodejs_24

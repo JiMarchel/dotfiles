@@ -162,7 +162,11 @@
           enable = true;
           crates.enable = true;
         };
-        svelte.enable = true;
+        svelte = {
+          enable = true;
+
+          format.type = "biome";
+        };
         tailwind.enable = true;
       };
 
@@ -234,14 +238,16 @@
           enable = true;
           setupOpts = {
             filetypes = {
-              "html" = {};
-              "css" = {};
-              "javascript" = {};
-              "typescript" = {};
-              "jsx" = {};
-              "tsx" = {};
-              "vue" = {};
-              "svelte" = {};
+              "*" = {
+                RGB = true;
+                RRGGBB = true;
+                RRGGBBAA = true;
+                AARRGGBB = true;
+                rgb_fn = true;
+                hsl_fn = true;
+                names = true;
+                tailwind = true;
+              };
             };
           };
         };

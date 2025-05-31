@@ -5,5 +5,6 @@
     ./packages.nix
     ./wlogout/wlogout.nix
     ./rofi.nix
+    ./zen-browser.nix
   ];
 }
