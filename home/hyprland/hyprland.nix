@@ -147,7 +147,7 @@
         "$mainMod, E, exec, dolphin"
         "$mainMod, M, exec, rofimoji"
         "$mainMod, L, exec, hyprlock"
-        "$mainMod, B, exec, firefox"
+        "$mainMod, B, exec, zen"
         "$mainMod, F, exec, fullscreen"
         "$mainMod, G, togglegroup,"
         "$mainMod, P, pseudo,"
