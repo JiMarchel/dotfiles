@@ -35,7 +35,7 @@
   users.users.marchel = {
     isNormalUser = true;
     description = "marchel";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "vboxusers"];
     packages = with pkgs; [
       #  thunderbird
     ];
@@ -45,7 +45,7 @@
   programs.firefox.enable = true;
 
   # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   #hyprland
   programs.hyprland = {
