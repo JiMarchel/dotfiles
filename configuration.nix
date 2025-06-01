@@ -35,17 +35,22 @@
   users.users.marchel = {
     isNormalUser = true;
     description = "marchel";
-    extraGroups = ["networkmanager" "wheel" "docker" "vboxusers"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       #  thunderbird
     ];
   };
+  users.extraGroups.vboxusers.members = ["marchel"];
+  # Enable Virt-manager
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.extraGroups.libvirtd.members = ["y"];
 
   # Install firefox.
   programs.firefox.enable = true;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
 
   #hyprland
   programs.hyprland = {
