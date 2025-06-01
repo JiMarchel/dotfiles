@@ -1,12 +1,12 @@
 {pkgs, ...}: {
   services = {
+    desktopManager.plasma6.enable = true;
     xserver = {
       enable = true;
       # displayManager = {
       #   sddm.enable = true;
       #   sddm.theme = "${import ./sddm-theme.nix {inherit pkgs;}}";
       # };
-      desktopManager.plasma6.enable = true;
 
       # Configure keymap in X11
       xkb = {

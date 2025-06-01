@@ -35,16 +35,16 @@
   users.users.marchel = {
     isNormalUser = true;
     description = "marchel";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "vboxusers"];
     packages = with pkgs; [
       #  thunderbird
     ];
   };
   users.extraGroups.vboxusers.members = ["marchel"];
   # Enable Virt-manager
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
-  users.extraGroups.libvirtd.members = ["y"];
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
+  # users.extraGroups.libvirtd.members = ["y"];
 
   # Install firefox.
   programs.firefox.enable = true;
