@@ -11,6 +11,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = ["kvm.enable_virt_at_load=0"];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -35,16 +36,16 @@
   users.users.marchel = {
     isNormalUser = true;
     description = "marchel";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "vboxusers"];
     packages = with pkgs; [
       #  thunderbird
     ];
   };
   # users.extraGroups.vboxusers.members = ["marchel"];
   # Enable Virt-manager
-  # virtualisation.libvirtd.enable = true;
-  # programs.virt-manager.enable = true;
-  # users.extraGroups.libvirtd.members = ["y"];
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.extraGroups.libvirtd.members = ["y"];
 
   # Install firefox.
   programs.firefox.enable = true;
