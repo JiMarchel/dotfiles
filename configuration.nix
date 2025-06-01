@@ -40,7 +40,7 @@
       #  thunderbird
     ];
   };
-  users.extraGroups.vboxusers.members = ["marchel"];
+  # users.extraGroups.vboxusers.members = ["marchel"];
   # Enable Virt-manager
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
