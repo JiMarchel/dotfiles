@@ -35,7 +35,7 @@
   users.users.marchel = {
     isNormalUser = true;
     description = "marchel";
-    extraGroups = ["networkmanager" "wheel" "docker" "vboxusers"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       #  thunderbird
     ];
