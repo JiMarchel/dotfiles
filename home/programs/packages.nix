@@ -19,6 +19,7 @@
 
     #dev
     vscode
+    code-cursor
     rustup
     gcc
     nodejs_24
