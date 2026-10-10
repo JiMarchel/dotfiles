@@ -25,6 +25,10 @@ home/
     │   ├── plugin/                  # after/plugin/
     │   ├── lazy-lock.json           # locked plugin versions
     │   └── stylua.toml
+    ├── screensaver/
+    │   ├── ascii.txt                # ASCII art content
+    │   ├── screensaver              # tte animation loop (kitty fullscreen)
+    │   └── screensaver-toggle       # idle on/off toggle
     ├── user-dirs.dirs               # XDG folder paths
     └── zsh/
         ├── .zshrc                   # main config
@@ -50,6 +54,8 @@ home/
 | `fuzzel` | App launcher (fallback) | `sudo dnf install fuzzel` |
 | `grim` | Screenshot tool | `sudo dnf install grim` |
 | `swaybg` | Wallpaper daemon (fallback) | `sudo dnf install swaybg` |
+| `swayidle` | Idle manager (screensaver + lock timer) | `sudo dnf install swayidle` |
+| `tte` | Terminal Text Effects (ASCII art animation) | `cargo install tte` |
 
 ### Shell & CLI Tools
 
@@ -141,6 +147,35 @@ Tambahkan ke `~/.zlogin` atau display manager:
 
 ```bash
 exec niri
+```
+
+### 9. Screensaver (opsional)
+
+Screensaver gaya Omarchy sudah terintegrasi via `swayidle`:
+
+- **Idle 150 detik** → ASCII screensaver muncul (kitty fullscreen + tte animation)
+- **Idle 300 detik** → Noctalia lock screen aktif
+- **Sembarang key/mouse** → screensaver exit
+
+Hotkeys:
+
+| Key | Action |
+|-----|--------|
+| `Super+Alt+A` | Toggle idle screensaver on/off |
+| `Super+Ctrl+A` | Force screensaver sekarang |
+
+Ubah konten ASCII art:
+
+```bash
+$EDITOR ~/.config/screensaver/ascii.txt
+```
+
+Ubah timer idle:
+
+```bash
+# Edit spawn-at-startup di ~/.config/niri/config.kdl
+# "timeout 150 'screensaver'" → ubah angka (detik)
+niri msg action load-config-file
 ```
 
 ## Cara Kerja Stow
