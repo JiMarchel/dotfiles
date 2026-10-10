@@ -259,6 +259,13 @@ include "theme.kdl"
 // Previous: waybar + swaybg, disabled 2026-10-05.
 spawn-at-startup "noctalia" "--daemon"
 
+// Idle manager: triggers screensaver (150s) and lock (300s) via Noctalia.
+spawn-at-startup "swayidle" \
+  "timeout 150 'screensaver'" \
+  "timeout 300 'noctalia msg lock-toggle'" \
+  "resume 'noctalia msg lock-toggle'" \
+  "before-sleep 'noctalia msg lock-toggle'"
+
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
 
@@ -328,6 +335,19 @@ window-rule {
     // block-out-from "screencast"
 }
 
+// Screensaver windows: fullscreen, no focus, no border.
+window-rule {
+    match app-id=r#"^screensaver$"#
+    open-fullscreen true
+    open-focused false
+    focus-ring {
+        off
+    }
+    border {
+        off
+    }
+}
+
 // Rounded corners for all windows.
 window-rule {
     geometry-corner-radius 12
@@ -357,6 +377,10 @@ binds {
     Super+B hotkey-overlay-title="Open Browser: zen-browser" { spawn "zen-browser"; }
     Mod+B hotkey-overlay-title="Open Browser: zen-browser" { spawn "zen-browser"; }
     Super+Shift+O hotkey-overlay-title="Open Obsidian" { spawn "obsidian"; }
+
+    // Screensaver: manual trigger + idle toggle.
+    Super+Alt+A hotkey-overlay-title="Toggle Screensaver" { spawn-sh "screensaver-toggle"; }
+    Super+Ctrl+A hotkey-overlay-title="Force Screensaver" { spawn-sh "screensaver force"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

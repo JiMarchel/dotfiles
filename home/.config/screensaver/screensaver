@@ -1,0 +1,29 @@
+#!/bin/bash
+# Omarchy-style ASCII screensaver for niri + kitty
+# Usage: screensaver [force]
+
+ASCII_FILE="$HOME/.config/screensaver/ascii.txt"
+LOCK_CMD="noctalia msg lock-toggle"
+
+# If not forced, check if screensaver is toggled off
+if [[ "$1" != "force" ]]; then
+  TOGGLE_FILE="$HOME/.config/screensaver/disabled"
+  [[ -f "$TOGGLE_FILE" ]] && exit 0
+fi
+
+# Exit if already running
+pgrep -f "screensaver.*tte" >/dev/null 2>&1 && exit 0
+
+# Spawn fullscreen kitty per monitor with tte animation
+for output in $(niri msg outputs 2>/dev/null | grep "Output " | awk '{print $2}'); do
+  kitty --start-as=fullscreen --class=screensaver \
+    -o allow_remote_control=yes \
+    sh -c "tte '$ASCII_FILE' --random-effect 2>/dev/null || cat '$ASCII_FILE'; read -n1" &
+done
+
+# Wait for any keypress or mouse movement to dismiss
+while true; do
+  sleep 1
+  # Exit if no kitty screensaver process remains
+  pgrep -f "class=screensaver" >/dev/null 2>&1 || break
+done

@@ -1,0 +1,11 @@
+#!/bin/bash
+# Toggle idle screensaver on/off (Omarchy-style)
+TOGGLE_FILE="$HOME/.config/screensaver/disabled"
+
+if [[ -f "$TOGGLE_FILE" ]]; then
+  rm "$TOGGLE_FILE"
+  notify-send -u low "Screensaver" "Idle screensaver enabled"
+else
+  touch "$TOGGLE_FILE"
+  notify-send -u low "Screensaver" "Idle screensaver disabled"
+fi
