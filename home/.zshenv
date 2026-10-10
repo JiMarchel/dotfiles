@@ -7,6 +7,10 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# ---------- Zsh ----------
+# Must be set before STARSHIP_CONFIG and any $ZDOTDIR-relative paths
+export ZDOTDIR="$HOME/.config/zsh"
+
 # ---------- Editor ----------
 # Default editor used by git, crontab, etc.
 export EDITOR="nvim"

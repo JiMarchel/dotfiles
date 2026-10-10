@@ -7,8 +7,8 @@ layout {
         // Thin border, palette-driven colors.
         width 2
 
-        active-color "#c0c7d7"
-        inactive-color "#45474c"
+        active-color "#ffb1c8"
+        inactive-color "#594047"
         urgent-color "#ffb4ab"
     }
 

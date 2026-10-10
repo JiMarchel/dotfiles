@@ -12,13 +12,46 @@ if [[ "$1" != "force" ]]; then
 fi
 
 # Exit if already running
-pgrep -f "screensaver.*tte" >/dev/null 2>&1 && exit 0
+pgrep -f "class=screensaver" >/dev/null 2>&1 && exit 0
 
-# Spawn fullscreen kitty per monitor with tte animation
+# Pick a random animation from available tools
+ANIMATIONS=()
+command -v cmatrix >/dev/null 2>&1 && ANIMATIONS+=("cmatrix")
+command -v asciiquarium >/dev/null 2>&1 && ANIMATIONS+=("asciiquarium")
+command -v cbonsai >/dev/null 2>&1 && ANIMATIONS+=("cbonsai")
+command -v tte >/dev/null 2>&1 && ANIMATIONS+=("tte")
+
+if [[ ${#ANIMATIONS[@]} -eq 0 ]]; then
+  notify-send -u critical "Screensaver" "No animation tools installed. Install cmatrix, asciiquarium, or cbonsai."
+  exit 1
+fi
+
+PICKED=${ANIMATIONS[$RANDOM % ${#ANIMATIONS[@]}]}
+
+# Spawn fullscreen kitty per monitor with animation
 for output in $(niri msg outputs 2>/dev/null | grep "Output " | awk '{print $2}'); do
-  kitty --start-as=fullscreen --class=screensaver \
-    -o allow_remote_control=yes \
-    sh -c "tte '$ASCII_FILE' --random-effect 2>/dev/null || cat '$ASCII_FILE'; read -n1" &
+  case "$PICKED" in
+    cmatrix)
+      kitty --start-as=fullscreen --class=screensaver \
+        -o allow_remote_control=yes \
+        sh -c "cmatrix -absu 0; read -n1" &
+      ;;
+    asciiquarium)
+      kitty --start-as=fullscreen --class=screensaver \
+        -o allow_remote_control=yes \
+        sh -c "asciiquarium; read -n1" &
+      ;;
+    cbonsai)
+      kitty --start-as=fullscreen --class=screensaver \
+        -o allow_remote_control=yes \
+        sh -c "cbonsai -li; read -n1" &
+      ;;
+    tte)
+      kitty --start-as=fullscreen --class=screensaver \
+        -o allow_remote_control=yes \
+        sh -c "tte '$ASCII_FILE' --random-effect 2>/dev/null || cat '$ASCII_FILE'; read -n1" &
+      ;;
+  esac
 done
 
 # Wait for any keypress or mouse movement to dismiss
