@@ -1,0 +1,15 @@
+# Noctalia user template: drive niri's border/focus/shadow colors from the
+# wallpaper-derived palette. Config lives here (not settings.toml) so it is
+# dotfile-friendly and not touched by the Noctalia GUI.
+
+[theme.templates]
+enable_builtin_templates = true
+enable_community_templates = false
+builtin_ids = ["kitty"]
+
+[theme.templates.user.niri]
+input_path = "$XDG_CONFIG_HOME/noctalia/templates/niri-theme.kdl"
+output_path = "$XDG_CONFIG_HOME/niri/theme.kdl"
+post_hook = "niri msg action load-config-file"
+hook_async = false
+
